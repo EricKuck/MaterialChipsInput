@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,7 +15,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextPaint;
-import android.util.Log;
 
 import com.pchmn.materialchips.R;
 
@@ -79,7 +77,7 @@ public class LetterTileProvider {
      *         alphabet or digit, if there is no letter or digit available, a
      *         default image is shown instead
      */
-    public Bitmap getLetterTile(String displayName) {
+    public Bitmap getLetterTile(CharSequence displayName) {
         // workaround
         if(displayName == null || displayName.length() == 0)
             return null;
@@ -152,7 +150,7 @@ public class LetterTileProvider {
      * @return A new or previously chosen color for <code>key</code> used as the
      *         tile background color
      */
-    private int pickColor(String key) {
+    private int pickColor(CharSequence key) {
         // String.hashCode() is not supposed to change across java versions, so
         // this should guarantee the same key always maps to the same color
         final int color = Math.abs(key.hashCode()) % NUM_OF_TILE_COLORS;

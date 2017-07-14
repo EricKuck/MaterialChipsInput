@@ -9,6 +9,6 @@ public interface ChipInterface {
     Object getId();
     Uri getAvatarUri();
     Drawable getAvatarDrawable();
-    String getLabel();
-    String getInfo();
+    CharSequence getLabel();
+    CharSequence getInfo();
 }

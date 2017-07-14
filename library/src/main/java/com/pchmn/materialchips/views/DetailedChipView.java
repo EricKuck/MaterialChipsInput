@@ -1,14 +1,11 @@
 package com.pchmn.materialchips.views;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -20,12 +17,9 @@ import android.widget.TextView;
 
 import com.pchmn.materialchips.R;
 import com.pchmn.materialchips.R2;
-import com.pchmn.materialchips.model.Chip;
 import com.pchmn.materialchips.model.ChipInterface;
 import com.pchmn.materialchips.util.ColorUtil;
 import com.pchmn.materialchips.util.LetterTileProvider;
-import com.pchmn.materialchips.util.MyWindowCallback;
-import com.pchmn.materialchips.util.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -126,11 +120,11 @@ public class DetailedChipView extends RelativeLayout {
         mAvatarIconImageView.setImageURI(icon);
     }
 
-    public void setName(String name) {
+    public void setName(CharSequence name) {
         mNameTextView.setText(name);
     }
 
-    public void setInfo(String info) {
+    public void setInfo(CharSequence info) {
         if(info != null) {
             mInfoTextView.setVisibility(VISIBLE);
             mInfoTextView.setText(info);
@@ -178,8 +172,8 @@ public class DetailedChipView extends RelativeLayout {
         private Context context;
         private Uri avatarUri;
         private Drawable avatarDrawable;
-        private String name;
-        private String info;
+        private CharSequence name;
+        private CharSequence info;
         private ColorStateList textColor;
         private ColorStateList backgroundColor;
         private ColorStateList deleteIconColor;

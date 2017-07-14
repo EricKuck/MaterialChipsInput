@@ -10,14 +10,12 @@ import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pchmn.materialchips.model.Chip;
 import com.pchmn.materialchips.model.ChipInterface;
 import com.pchmn.materialchips.util.LetterTileProvider;
 import com.pchmn.materialchips.util.ViewUtil;
@@ -38,7 +36,7 @@ public class ChipView extends RelativeLayout {
     @BindView(R2.id.delete_button) ImageButton mDeleteButton;
     // attributes
     private static final int NONE = -1;
-    private String mLabel;
+    private CharSequence mLabel;
     private ColorStateList mLabelColor;
     private boolean mHasAvatarIcon = false;
     private Drawable mAvatarIconDrawable;
@@ -147,7 +145,7 @@ public class ChipView extends RelativeLayout {
      *
      * @return the label
      */
-    public String getLabel() {
+    public CharSequence getLabel() {
         return mLabel;
     }
 
@@ -156,7 +154,7 @@ public class ChipView extends RelativeLayout {
      *
      * @param label the label to set
      */
-    public void setLabel(String label) {
+    public void setLabel(CharSequence label) {
         mLabel = label;
         mLabelTextView.setText(label);
     }
@@ -358,7 +356,7 @@ public class ChipView extends RelativeLayout {
      */
     public static class Builder {
         private Context context;
-        private String label;
+        private CharSequence label;
         private ColorStateList labelColor;
         private boolean hasAvatarIcon = false;
         private Uri avatarIconUri;
