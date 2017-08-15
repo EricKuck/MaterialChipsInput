@@ -50,7 +50,6 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private Comparator<ChipInterface> mComparator;
     private Collator mCollator;
 
-
     public FilterableAdapter(Context context,
                              RecyclerView recyclerView,
                              List<? extends ChipInterface> chipList,
@@ -64,7 +63,9 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         mComparator = new Comparator<ChipInterface>() {
             @Override
             public int compare(ChipInterface o1, ChipInterface o2) {
-                return mCollator.compare(o1.getLabel(), o2.getLabel());
+                String string1 = o1.getLabel() != null ? o1.getLabel().toString() : null;
+                String string2 = o2.getLabel() != null ? o2.getLabel().toString() : null;
+                return mCollator.compare(string1, string2);
             }
         };
         // remove chips that do not have label
