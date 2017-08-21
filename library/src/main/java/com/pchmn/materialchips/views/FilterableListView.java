@@ -75,7 +75,7 @@ public class FilterableListView extends RelativeLayout {
             public void onGlobalLayout() {
 
                 // position
-                ViewGroup rootView = (ViewGroup) mChipsInput.getRootView();
+                ViewGroup rootView = (ViewGroup) mChipsInput.getParent();
 
                 // size
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
