@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AlphaAnimation;
 import android.widget.Filter;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.pchmn.materialchips.ChipsInput;
