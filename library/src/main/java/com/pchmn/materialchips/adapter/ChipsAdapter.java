@@ -233,7 +233,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private void setDetailedChipViewPosition(DetailedChipView detailedChipView, int[] coord) {
         // window width
-        ViewGroup rootView = (ViewGroup) mRecycler.getRootView();
+        ViewGroup rootView = (ViewGroup) mRecycler.getParent();
         int windowWidth = ViewUtil.getWindowWidth(mContext);
 
         // chip size
