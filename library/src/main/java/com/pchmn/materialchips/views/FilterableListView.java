@@ -78,17 +78,9 @@ public class FilterableListView extends RelativeLayout {
                 ViewGroup rootView = (ViewGroup) mChipsInput.getParent();
 
                 // size
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                        ViewUtil.getWindowWidth(mContext),
+                ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT);
-
-                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-
-                if(mContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-                    layoutParams.bottomMargin = ViewUtil.getNavBarHeight(mContext);
-                }
-
 
                 // add view
                 rootView.addView(FilterableListView.this, layoutParams);
