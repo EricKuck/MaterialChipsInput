@@ -337,10 +337,20 @@ public class ChipsInput extends ScrollViewMaxHeight {
     }
 
     public void setFilterableList(List<? extends ChipInterface> list) {
+        removeFilterableListView();
         mChipList = list;
         mFilterableListView = new FilterableListView(mContext);
         mFilterableListView.build(mChipList, this, mFilterableListBackgroundColor, mFilterableListTextColor);
         mChipsAdapter.setFilterableListView(mFilterableListView);
+    }
+    
+    public void removeFilterableListView() {
+        if (mFilterableListView != null) {
+            ViewGroup parent = (ViewGroup)mFilterableListView.getParent();
+            if (parent != null) {
+                parent.removeView(mFilterableListView);
+            }
+        }
     }
 
     public List<? extends ChipInterface> getFilterableList() {
