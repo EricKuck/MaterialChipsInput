@@ -7,7 +7,6 @@ import android.content.res.Configuration;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -77,13 +76,13 @@ public class FilterableListView extends RelativeLayout {
 
                 // position
                 ViewGroup rootView = (ViewGroup) mChipsInput.getParent();
+                if (rootView != null) {
+                    // Whatever. This lib is super broken anyway.
+                    rootView = (ViewGroup) rootView.getParent();
+                }
 
                 // size
-                ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(0, 0);
-                layoutParams.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
-                layoutParams.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
-                layoutParams.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID;
-                layoutParams.rightToLeft = ConstraintLayout.LayoutParams.PARENT_ID;
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
 
                 // add view
                 rootView.addView(FilterableListView.this, layoutParams);
