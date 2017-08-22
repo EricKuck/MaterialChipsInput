@@ -130,7 +130,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         mEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         mEditText.setPrivateImeOptions("nm");
         // no suggestion
-        mEditText.setInputType(InputType.TYPE_TEXT_VARIATION_FILTER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        mEditText.setInputType(InputType.TYPE_TEXT_VARIATION_FILTER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
 
         // handle back space
         mEditText.setOnKeyListener(new View.OnKeyListener() {
