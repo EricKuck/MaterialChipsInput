@@ -117,8 +117,14 @@ public class FilterableListView extends RelativeLayout {
      */
     public void fadeIn() {
         if(getVisibility() == VISIBLE)
-            return;
-
+            return;	
+ 		
+        int[] coord = new int[2];		
+        mChipsInput.getLocationInWindow(coord);		
+        ViewGroup.MarginLayoutParams layoutParams = (MarginLayoutParams) getLayoutParams();		
+        layoutParams.topMargin = coord[1] + mChipsInput.getHeight();				
+        setLayoutParams(layoutParams);		
+ 
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(200);
         startAnimation(anim);
